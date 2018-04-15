@@ -1,0 +1,8 @@
+{
+    "valid":{
+        "text":"my comment"
+    },
+    "wrong":{
+        "planetName":""
+    }
+}

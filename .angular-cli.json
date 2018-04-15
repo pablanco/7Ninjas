@@ -8,18 +8,18 @@
       "root": "src",
       "outDir": "dist",
       "assets": [
-        "assets",
+        "client/assets",
         "favicon.ico"
       ],
-      "index": "index.html",
-      "main": "main.ts",
+      "index": "client/index.html",
+      "main": "client/app/main.ts",
       "polyfills": "polyfills.ts",
       "test": "test.ts",
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "client/styles.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

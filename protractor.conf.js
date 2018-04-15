@@ -6,8 +6,12 @@ const { SpecReporter } = require('jasmine-spec-reporter');
 exports.config = {
   allScriptsTimeout: 11000,
   specs: [
-    './e2e/**/*.e2e-spec.ts'
+    './test/e2e/login.js',
+    './test/e2e/planet.js',
+    './test/e2e/comment.js',
+    './test/e2e/planets.js'
   ],
+  seleniumAddress: 'http://localhost:4444/wd/hub',
   capabilities: {
     'browserName': 'chrome'
   },

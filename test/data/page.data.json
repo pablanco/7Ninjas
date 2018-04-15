@@ -1,0 +1,36 @@
+{
+    "common":{
+        "page_title":"Star Wars Planets"
+    },
+    "login":{
+        "url":"http://localhost:4200/login/",
+        "url_redirect":"http://localhost:4200/planet",
+        "welcome":"Welcome admin !!",
+        "validation":{
+            "error":"Please provide user and password",
+            "validation_error": "Your user or password are wrong."
+        }
+    },
+    "planet":{
+        "url":"http://localhost:4200/planet/",
+        "url_redirect":"http://localhost:4200/planet",
+        "validation":{
+            "error":"Please provide a name",
+            "validation_error": "Data not found."
+        }
+    },
+    "planets":{
+        "url":"http://localhost:4200/planets/",
+        "url_redirect":"http://localhost:4200/planets"
+    },
+    "comment":{
+        "url":"http://localhost:4200/comment/",
+        "url_redirect":"http://localhost:4200/planets",
+        "validation":{
+            "error":"Please provide a text for your comment"
+        }
+    },
+    "logout":{
+        "url_redirect":"http://localhost:4200/"
+    }
+}

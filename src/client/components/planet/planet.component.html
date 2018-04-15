@@ -1,0 +1,75 @@
+<mat-toolbar class="header">
+  <mat-toolbar-row>
+    <img class="header-logo" src="client/assets/logo.jpg">
+    <span class="spacer"></span>
+    <span class="welcome">Welcome {{username}} !!</span>
+    <span class="spacer"></span>
+    <mat-icon class="headerIcons" [routerLink]="['../planet']">search</mat-icon>
+    <mat-icon class="headerIcons" (click)="Logout()">exit_to_app</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-card *ngIf="!showSpinner">
+  <mat-card-title>
+    Planets
+  </mat-card-title>
+
+  <mat-card-content>
+    <div class="example-container mat-elevation-z8">
+      <div class="example-header">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter Results">
+        </mat-form-field>
+      </div>
+
+      <mat-table #table [dataSource]="dataSource">
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.id}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="rotation_period">
+          <mat-header-cell *matHeaderCellDef> Rotation Period </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.rotation_period}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="orbital_period">
+          <mat-header-cell *matHeaderCellDef> Orbital Period </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.orbital_period}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="diameter">
+          <mat-header-cell *matHeaderCellDef> Diameter </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.diameter}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="climate">
+          <mat-header-cell *matHeaderCellDef> Climate </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.climate}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="gravity">
+          <mat-header-cell *matHeaderCellDef> Gravity </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.gravity}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+          <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <a class="icon comment" target="_self" [routerLink]="['../comment/', element.id]">
+              <mat-icon>comment</mat-icon>
+            </a>
+            <a class="icon delete" target="_self" (click)="Delete(element.id)">
+              <mat-icon>delete</mat-icon>
+            </a>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+
+  </mat-card-content>
+
+</mat-card>

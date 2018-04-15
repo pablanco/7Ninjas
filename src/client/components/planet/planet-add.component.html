@@ -1,0 +1,62 @@
+<mat-toolbar class="header">
+  <mat-toolbar-row>
+    <img class="header-logo" src="client/assets/logo.jpg">
+    <span class="spacer"></span>
+    <span class="welcome">Welcome {{username}} !!</span>
+    <span class="spacer"></span>
+    <mat-icon class="headerIcons" [routerLink]="['../planets']">language</mat-icon>
+    <mat-icon class="headerIcons" (click)="Logout()">exit_to_app</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-card>
+  <mat-card-title>
+    Planet Search
+  </mat-card-title>
+
+  <mat-card-content>
+    <form>
+      <table class="full-width" cellspacing="0">
+        <tr>
+          <td>
+
+            <mat-form-field class="justifier">
+
+              <input matInput placeholder="Planet Name" [(ngModel)]="planetName" name="planetName" required>
+
+            </mat-form-field>
+
+          </td>
+          <td>
+            <mat-card-actions>
+              <button mat-raised-button class="search-button" (click)="DoSearch()" color="primary">Search</button>
+            </mat-card-actions>
+
+          </td>
+
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+
+</mat-card>
+
+<mat-card *ngIf="showSpinner">
+  <div class="spinner">
+    <mat-spinner color="warn"></mat-spinner>
+  </div>
+</mat-card>
+
+<mat-card *ngIf="!showSpinner && planets" class="results">
+  <mat-card-title>
+    Planet Details
+  </mat-card-title>
+
+  <div *ngFor="let planet of planets; let i = index">
+    <mat-card-content class="result">
+      {{planet.id}} {{planet.rotation_period}} {{planet.orbital_period}} {{planet.diameter}} {{planet.climate}} {{planet.gravity}}
+    </mat-card-content>
+
+  </div>
+
+</mat-card>

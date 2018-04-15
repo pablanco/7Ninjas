@@ -1,0 +1,60 @@
+<mat-toolbar class="header">
+  <mat-toolbar-row>
+    <img class="header-logo" src="client/assets/logo.jpg">
+    <span class="spacer"></span>
+    <span class="welcome">Welcome {{username}} !!</span>
+    <span class="spacer"></span>
+    <mat-icon class="headerIcons" [routerLink]="['../../planets']">language</mat-icon>
+    <mat-icon class="headerIcons" (click)="Logout()">exit_to_app</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-card>
+  <mat-card-title>
+    Add a comment to {{planetName}}
+  </mat-card-title>
+
+  <mat-card-content>
+    <form>
+      <table class="full-width" cellspacing="0">
+        <tr>
+          <td>
+
+            <mat-form-field class="justifier">
+              <textarea matInput placeholder="Leave a comment" [(ngModel)]="comment" name="comment" required></textarea>
+            </mat-form-field>
+
+          </td>
+          <td>
+            <mat-card-actions>
+              <button mat-raised-button class="search-button" (click)="Comment()" color="primary">Comment</button>
+            </mat-card-actions>
+
+          </td>
+
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+
+</mat-card>
+
+<mat-card *ngIf="showSpinner">
+  <div class="spinner">
+    <mat-spinner color="warn"></mat-spinner>
+  </div>
+</mat-card>
+
+<mat-card *ngIf="!showSpinner && comments" class="results">
+  <mat-card-title>
+    Comments
+  </mat-card-title>
+
+  <div *ngFor="let comment of comments; let i = index" class="content">
+    <mat-card-content class="result">
+      {{comment.planetID}} {{comment.text}}
+    </mat-card-content>
+
+  </div>
+
+</mat-card>

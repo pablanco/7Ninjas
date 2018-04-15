@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+body{
+	background-color: #f6f6f6;
+	font-family: 'Roboto', sans-serif;
+	margin:0px !important;
+}
+
+.header{
+    background-color: #000000;
+    color: #fff !important;
+}
+
+mat-spinner svg { width: 40px !important; height: 40px !important;}
+mat-spinner { width: 40px !important; height: 40px !important; margin: 0 auto }
+
+
+.spinner{
+    align-content: center;
+    width: 100%;
+}
+.icon{
+    cursor: pointer;
+}
+.header-logo{
+    width: 80px;
+    height: auto;
+}
+.spacer {
+    flex: 1 1 auto;
+}
+.headerIcons {
+    padding: 0 14px;
+    cursor: pointer;
+}
+.full-width{
+    width: 100%;
+}
+.justifier {
+	width: 90%;
+    padding-bottom: 2%;
+    margin: 3%;
+}
+
+.logo{
+    width: 50px;
+    height: auto;
+    margin: 10px 0 10px 0;
+}

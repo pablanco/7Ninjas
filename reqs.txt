@@ -1,0 +1,63 @@
+
+Star Wars Planetary Database
+This is 7ninjas' recruitment task for Node.js developers. You will find instructions and requirements below. Read them carefully and then send us your solution as GitHub/GitLab repository.
+
+We need an application for storing and acquiring detailed information about planets from Star Wars universe and adding comments to them. Let's assume it's a galactic TripAdvisor.
+
+You will be tasked with creating a simple REST API complete with a database and usage of external API.
+
+SPECIFICATION
+
+Please build REST-like JSON API with simple authentication. Full specification of routes below:
+
+POST /planets:
+
+application/json request body containing planet's name,
+
+request data should be validated and accept only name as a string,
+
+additional data should be fetched from https://swapi.co/,
+
+fetched data should be saved to database,
+
+response should return HTTP 201 with the fetched data as response's body.
+
+GET /planets:
+
+list all planets from your database,
+
+adding pagination, filtering and sorting is optional but will be a bonus!
+
+POST /comments:
+
+application/json request that contains comment's text and planet's ID,
+
+it should add a comment to a given planet and return that comment as response body.
+
+GET /comments:
+
+it should fetch list of all comments from your database,
+
+it should allow for filtering by planet using /comments?planet=:planet_id query parameter.
+
+DELETE /planets/:id
+
+should remove a given planet from your database,
+
+only authorized request should be allowed, not-authorized requests should receive proper HTTP error.
+
+RULES
+
+You can use any frameworks and libraries that you want.
+
+Writing at least very basic tests for endpoints is optional but will be a big bonus.
+
+When creating authentication/authorization you can use any solution you want.
+
+Please include README.md file with instructions and requirements for building and running your application.
+
+You can use any database you wish though MongoDB/PostgreSQL are encouraged (or surprise us with something cool!).
+
+Using docker-compose will be a big bonus.
+
+It would be great if the application was hosted somewhere for us to see (Heroku, etc.)

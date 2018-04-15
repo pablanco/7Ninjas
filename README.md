@@ -1,27 +1,52 @@
-# StarWarsPlanetAdvisor
+# 7NinjasTest
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+Repository of the test demo app developed for 7Ninjas
 
-## Development server
+## Stack selection
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+All web services were developed with node.js, database is implemented with redis to improve request performance.
+Frontend has angular material design.
 
-## Code scaffolding
+## Run Requirements
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Before running the app you should install [Redis](https://redis.io/download) and [Node](https://nodejs.org/en/download/)
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Run the app
 
-## Running unit tests
+Open a console and go to the project root path.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 1. Client
 
-## Running end-to-end tests
+Execute
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+`npm install` install packages
+`ng serve` runs frontend 
 
-## Further help
+Frontend app should be available at [http://localhost:4200/](http://localhost:4200/)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### 2. Server
+
+Execute
+
+`gulp` compiles server js files
+`node dist/app.server.js` runs the server
+
+Server should be running at [http://localhost:3000/](http://localhost:3000/)
+
+### Tests
+
+I have implemented some E2E test, testing front and back ends. (To run the tests you should previously clear all redis data executing: redis-cli FLUSHALL and run the server (2) )
+ 
+Execute
+
+`protractor protractor.conf.js` runs WebDriver and tests under /test folder
+
+## Routes
+
+User login      - http://localhost:4200/login/
+Planet search   - http://localhost:4200/planet
+Planet list     - http://localhost:4200/planets
+Planet comments - http://localhost:4200/comment/Felucia
+
+
